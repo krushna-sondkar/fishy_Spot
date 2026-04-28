@@ -1,0 +1,294 @@
+Perfect choices! Here's the complete plan + Replit prompt.
+
+---
+
+## 🐟 Fishy Spot — Complete Website Architecture
+
+### Tech Stack (What Replit will build)
+- **Frontend:** React.js
+- **Backend:** Node.js + Express
+- **Database:** JSON file storage (simple, no setup needed to start)
+- **Payments:** Cash on Delivery
+- **Orders:** Stored in backend, WhatsApp notification auto-sent to you
+
+---
+
+## Complete Replit Prompt
+
+Copy this entire prompt and paste into **Replit Agent:**
+
+---
+
+> Build a complete full-stack fish delivery website called **"Fishy Spot"** using **React (frontend) + Node.js/Express (backend)**. This is a real business website for fresh fish home delivery in Mumbai and Navi Mumbai, India.
+>
+> ---
+>
+> ### 🗂️ PAGES & ROUTING
+>
+> Use React Router for these pages:
+> - `/` — Home page
+> - `/shop` — Fish menu/shop page
+> - `/cart` — Cart page
+> - `/checkout` — Checkout page
+> - `/order-confirmation` — Order success page
+> - `/about` — About us page
+> - `/contact` — Contact page
+>
+> ---
+>
+> ### 🎨 DESIGN SYSTEM
+>
+> Apply this design system globally via CSS variables:
+>
+> ```css
+> --color-bg: #0b1f3a
+> --color-surface: #112240
+> --color-accent: #00c9b1
+> --color-cta: #ff6b35
+> --color-text: #ffffff
+> --color-muted: #8892b0
+> --color-card: #1a2f55
+> --color-border: rgba(0,201,177,0.2)
+> --font-heading: 'Playfair Display', serif
+> --font-body: 'DM Sans', sans-serif
+> ```
+>
+> Import from Google Fonts: Playfair Display + DM Sans.
+> Mobile-first responsive design. All pages must look great on mobile phones.
+> Sticky navbar. Smooth scroll. Fade-in on scroll using Intersection Observer.
+> Floating WhatsApp button fixed bottom-right: `https://wa.me/919011295599`
+>
+> ---
+>
+> ### 🧭 NAVBAR (all pages)
+>
+> - Left: 🐟 **Fishy Spot** logo (Playfair Display, teal)
+> - Subtitle: *"From the Sea to Your Plate"*
+> - Links: Home | Shop | About | Contact
+> - Right side: Cart icon with live item count badge + **"Order Now"** button
+> - Mobile: hamburger menu
+>
+> ---
+>
+> ### 🏠 HOME PAGE `/`
+>
+> **Hero Section:**
+> - Headline: **"From the Sea to Your Plate — Fresh, Fast & at Your Door."**
+> - Subheadline: *"Mumbai's freshest fish, sourced every morning from the docks and delivered to your home. No frozen stock. Ever."*
+> - CTA buttons: **"Shop Now"** (→ /shop) and **"How It Works"** (scrolls down)
+> - Trust badges row: ✅ Daily Fresh Catch | 🚚 Free Delivery above ₹500 | 🔪 Cleaned & Ready to Cook | 💰 Best Market Prices
+> - Animated CSS fish swimming across background + wave SVG at bottom
+>
+> **Features Section:**
+> 4 glassmorphism cards:
+> - 🌊 Daily Fresh Catch — Sourced every morning from Sassoon Dock & Vashi Fish Market
+> - 🔪 Cleaned & Cut Your Way — Debone, fillet, or curry cut — you choose
+> - 🚪 Doorstep Delivery — Across Mumbai & Navi Mumbai, same day
+> - 💰 No Middlemen — Direct from dock to door, best prices guaranteed
+>
+> **Today's Catch Preview:**
+> - Show first 4 fish cards from the product list with "View All Fish →" button linking to /shop
+>
+> **How It Works:**
+> 3 steps with connector line:
+> - 📱 Step 1: Browse & add fish to cart by 12 PM
+> - 🐟 Step 2: We source, clean & pack fresh
+> - 🚚 Step 3: Delivered to your door by evening
+>
+> **Testimonials:**
+> 3 cards:
+> - ⭐⭐⭐⭐⭐ *"The Surmai was so fresh — tasted like it came straight from the dock!"* — Priya Mehta, Andheri West
+> - ⭐⭐⭐⭐⭐ *"Cleaned exactly how I asked. Saves so much time. Fishy Spot is amazing!"* — Rahul Desai, Kharghar
+> - ⭐⭐⭐⭐⭐ *"Best pomfret in years. Fresh, affordable, on time. Highly recommend!"* — Sunita Nair, Chembur
+>
+> **Delivery Areas:**
+> Two columns:
+> - 🏙️ Mumbai: Andheri, Bandra, Kurla, Chembur, Dadar, Worli, Powai, Mulund, Ghatkopar, Sion, Matunga, Vikhroli
+> - 🌆 Navi Mumbai: Vashi, Kharghar, Belapur, Panvel, Airoli, Nerul, Turbhe, Sanpada, Koparkhairane, Ghansoli
+> - Note: *"Don't see your area? WhatsApp us — we're expanding!"*
+>
+> ---
+>
+> ### 🐠 SHOP PAGE `/shop`
+>
+> - Page title: **"Today's Fresh Catch"**
+> - Subtitle: *"Order before 12 PM for same-day evening delivery"*
+> - Filter buttons: All | Sea Fish | Prawns & Shellfish | Speciality
+> - Responsive product grid (2 cols mobile, 3-4 cols desktop)
+>
+> **Product cards must have:**
+> - Large fish emoji
+> - Fish name (bold, Playfair Display)
+> - Local/Marathi name (small, muted)
+> - Category tag
+> - Price per kg
+> - Short description
+> - Quantity selector (+ / - buttons, min 0.5kg, steps of 0.5kg)
+> - Cut preference dropdown: Whole Fish | Curry Cut | Fillet | Steak Cut
+> - **"Add to Cart"** button (teal, full width)
+> - Out of stock toggle (shows "Not Available Today" grey state)
+>
+> **Fish list (all available by default):**
+>
+> | Emoji | Name | Local Name | Category | Price | Description |
+> |-------|------|------------|----------|-------|-------------|
+> | 🐟 | Surmai | King Fish | Sea Fish | ₹800/kg | Rich, meaty — perfect for fry or curry |
+> | 🫧 | Pomfret | Paplet | Sea Fish | ₹950/kg | Mumbai's favourite — silky smooth texture |
+> | 🐡 | Rawas | Indian Salmon | Sea Fish | ₹600/kg | Tender and flavourful, great for grilling |
+> | 🐠 | Bangda | Mackerel | Sea Fish | ₹300/kg | Bold flavour, best for masala fry |
+> | 🐟 | Bombil | Bombay Duck | Sea Fish | ₹250/kg | A Mumbai classic — crispy when fried |
+> | 🐡 | Halwa | Black Pomfret | Sea Fish | ₹500/kg | Soft, mild — loved by all ages |
+> | 🦐 | Kolambi | Prawns | Prawns & Shellfish | ₹700/kg | Juicy fresh prawns for any recipe |
+> | 🦀 | Tisrya | Clams | Prawns & Shellfish | ₹200/kg | Coastal flavour, great in coconut curry |
+> | 🦞 | Lobster | Lobster | Speciality | ₹1500/kg | Premium catch — limited availability |
+> | 🐙 | Squid | Calamari | Speciality | ₹400/kg | Tender squid for fry or gravy |
+>
+> ---
+>
+> ### 🛒 CART PAGE `/cart`
+>
+> - List of all added items with: emoji, name, cut preference, quantity, price per item, remove button
+> - Editable quantity in cart
+> - Order summary box (right side / bottom on mobile):
+>   - Subtotal
+>   - Delivery charge: ₹40 (FREE if subtotal ≥ ₹500 — show this dynamically)
+>   - **Total**
+> - Empty cart state: illustration + "Browse Our Fish" button → /shop
+> - **"Proceed to Checkout"** button (coral/orange, large)
+> - Below button: *"🔒 Safe & Secure | Cash on Delivery | Fresh Guaranteed"*
+>
+> ---
+>
+> ### 📋 CHECKOUT PAGE `/checkout`
+>
+> Form fields (no HTML form tag — use React state + onClick):
+>
+> **Personal Details:**
+> - Full Name (required)
+> - Mobile Number (required, 10 digits validation)
+> - Alternate Number (optional)
+>
+> **Delivery Address:**
+> - Flat / House Number (required)
+> - Building / Society Name (required)
+> - Street / Locality (required)
+> - Area dropdown (required) — all Mumbai & Navi Mumbai areas listed above
+> - Landmark (optional)
+> - Pincode (required)
+>
+> **Delivery Slot:**
+> - Radio buttons:
+>   - 🕔 Evening (4 PM – 7 PM) — Default
+>   - 🕖 Late Evening (7 PM – 9 PM)
+>
+> **Cut Preferences Summary:**
+> - Show each item and its selected cut (read only, from cart)
+>
+> **Special Instructions:**
+> - Textarea: *"Any special requests? (e.g. extra cleaning, less spicy marination)"*
+>
+> **Payment:**
+> - Only one option shown: ✅ Cash on Delivery
+> - Display order total again clearly
+>
+> **Place Order button:**
+> - On click → POST to backend `/api/orders` with full order data
+> - Show loading spinner while submitting
+> - On success → redirect to `/order-confirmation`
+> - On error → show error message
+>
+> ---
+>
+> ### ✅ ORDER CONFIRMATION PAGE `/order-confirmation`
+>
+> - Big green checkmark animation
+> - **"Order Placed Successfully! 🎉"**
+> - Order ID (generated: `FS-` + timestamp)
+> - Summary: customer name, items, total, delivery slot, address
+> - *"Our team will confirm your order within 30 minutes."*
+> - Two buttons:
+>   - **"Track on WhatsApp"** → `https://wa.me/919011295599?text=Hi! My Fishy Spot order ID is [ORDER_ID]. Please confirm my order.`
+>   - **"Continue Shopping"** → /shop
+>
+> ---
+>
+> ### 📖 ABOUT PAGE `/about`
+>
+> - Headline: **"We're Mumbaikars Who Love Fresh Fish"**
+> - Story: *"Fishy Spot started with one simple idea — why should getting fresh fish be so hard? Every morning, we wake up before dawn, head to the docks, pick the freshest catch of the day, and bring it straight to your kitchen. No middlemen, no frozen stock, no compromise on freshness. Just pure, honest fish."*
+> - Our Promise section: 3 points — Always Fresh, Always Cleaned, Always on Time
+> - Sourcing section: *"We source daily from Sassoon Dock, Mumbai and Vashi Fish Market, Navi Mumbai"*
+> - Serving: Mumbai & Navi Mumbai
+>
+> ---
+>
+> ### 📞 CONTACT PAGE `/contact`
+>
+> - Headline: **"Get in Touch"**
+> - Info cards:
+>   - 📱 WhatsApp: +91 90112 95599
+>   - 📸 Instagram: @the_fishy_spot → `https://www.instagram.com/the_fishy_spot/`
+>   - 🕐 Order Hours: Monday–Saturday, 7 AM – 12 PM
+>   - 🚚 Delivery: Same day evening
+>   - 📍 Areas: Mumbai & Navi Mumbai
+> - Large WhatsApp CTA button
+> - Delivery areas list (same as homepage)
+>
+> ---
+>
+> ### ⚙️ BACKEND — Node.js + Express
+>
+> **`POST /api/orders`**
+> - Accept full order object (customer details, items, address, slot, total)
+> - Generate order ID: `FS-` + Date.now()
+> - Save to `orders.json` file
+> - Return: `{ success: true, orderId: "FS-..." }`
+>
+> **`GET /api/orders`**
+> - Return all orders from orders.json (basic admin view)
+>
+> **`GET /api/fish`**
+> - Return the fish catalogue as JSON
+>
+> Store all data in JSON files — no database setup needed.
+>
+> ---
+>
+> ### 🌊 FOOTER (all pages)
+>
+> - Logo + tagline
+> - Links: Home | Shop | About | Contact
+> - 📱 +91 90112 95599
+> - 📸 @the_fishy_spot
+> - *"© 2025 Fishy Spot. Fresh Fish Home Delivery — Mumbai & Navi Mumbai."*
+> - *"Sourced fresh daily. Delivered with love. 🐟"*
+>
+> ---
+>
+> ### ⚙️ TECHNICAL REQUIREMENTS
+>
+> - React Router v6 for all routing
+> - React Context API for global cart state (persists across pages)
+> - All form interactions via React state and onClick — never use HTML form submit
+> - LocalStorage to persist cart if user refreshes
+> - Mobile responsive — hamburger nav on mobile
+> - Smooth page transitions
+> - Loading states on all async actions
+> - Input validation on checkout with clear error messages
+> - Intersection Observer for scroll animations
+> - Floating WhatsApp button on all pages (bottom right, pulsing green glow)
+> - Animated fish + CSS wave in hero
+> - Glassmorphism cards with hover lift effect
+> - No lorem ipsum — use all real content provided above
+
+---
+
+### After Replit Builds It — Next Steps
+
+1. **Test** every page on your phone
+2. **Add Razorpay** payment in Phase 2 (I'll give you that prompt too)
+3. **Build admin dashboard** so you can see all orders in one place
+4. **Buy a domain** — something like `fishyspot.in` (~₹500/year)
+5. **Host it** on Vercel (free) or Railway (free tier)
+
+Paste that prompt into Replit Agent and it'll build your entire website! Once done, share a screenshot and I'll help refine anything. 🚀🐟

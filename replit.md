@@ -24,4 +24,9 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
+## Artifacts
+
+- **Fishy Spot** (`artifacts/fishy-spot`) — React + Vite e-commerce frontend at `/` for the Fishy Spot fresh fish home delivery business (Mumbai & Navi Mumbai). Cart state via React Context + localStorage. Cash-on-delivery checkout. Floating WhatsApp button. Routes: `/`, `/shop`, `/cart`, `/checkout`, `/order-confirmation`, `/about`, `/contact`.
+- **API Server** (`artifacts/api-server`) — Express API at `/api`. Endpoints: `GET /healthz`, `GET /fish` (static catalogue), `POST /orders`, `GET /orders`, `GET /orders/stats`. Orders are persisted to `artifacts/api-server/data/orders.json` (no DB required).
+
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
