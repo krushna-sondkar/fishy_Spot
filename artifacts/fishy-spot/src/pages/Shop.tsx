@@ -6,7 +6,6 @@ import { useToast } from "@/hooks/use-toast";
 export default function Shop() {
   useEffect(() => {
     document.title = "Shop Today's Catch | Fishy Spot";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", "Order fresh fish before 12 PM for same-day evening delivery in Mumbai and Navi Mumbai.");
   }, []);
 
   const { data: fishData, isLoading } = useListFish();
@@ -20,42 +19,44 @@ export default function Shop() {
   }) || [];
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="text-center mb-12">
-        <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-primary">Today's Fresh Catch</h1>
-        <p className="text-muted-foreground text-lg">Order before 12 PM for same-day evening delivery</p>
+    <div className="container mx-auto px-4 py-20 max-w-7xl">
+      <div className="mb-16 border-b border-border pb-12">
+        <h1 className="font-serif text-5xl md:text-6xl font-medium mb-6 text-primary tracking-tighter">Catalogue</h1>
+        <p className="text-muted-foreground text-lg max-w-2xl font-light">
+          The finest daily selection. Order before 12 PM for same-day evening delivery.
+        </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-2 mb-10">
+      <div className="flex flex-wrap gap-4 mb-16">
         {["All", FishCategory.Sea_Fish, FishCategory["Prawns_&_Shellfish"], FishCategory.Speciality].map(cat => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-colors border ${
+            className={`px-6 py-2 text-xs uppercase tracking-widest font-medium transition-all border ${
               filter === cat 
                 ? "bg-primary text-primary-foreground border-primary" 
-                : "bg-card text-foreground border-border hover:border-primary/50"
+                : "bg-transparent text-muted-foreground border-border hover:border-primary hover:text-primary"
             }`}
           >
-            {cat}
+            {cat.replace("_", " ")}
           </button>
         ))}
       </div>
 
       {isLoading ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-            <div key={i} className="bg-card rounded-xl p-4 h-[400px] animate-pulse border border-border/20"></div>
+            <div key={i} className="bg-accent/20 h-[450px] animate-pulse border border-border"></div>
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredFish.map(fish => (
             <FishCard key={fish.id} fish={fish} onAdd={(item) => {
               addItem(item);
               toast({
                 title: "Added to Cart",
-                description: `${item.quantityKg}kg ${item.name} (${item.cut}) added to your cart.`,
+                description: `${item.quantityKg}kg ${item.name} (${item.cut}) has been added.`,
               });
             }} />
           ))}
@@ -73,35 +74,44 @@ function FishCard({ fish, onAdd }: { fish: any, onAdd: (item: any) => void }) {
   const decrease = () => setQuantity(q => Math.max(0.5, q - 0.5));
 
   return (
-    <div className={`bg-card rounded-xl p-4 md:p-6 border border-border/20 shadow-lg flex flex-col ${!fish.available ? "opacity-60" : ""}`}>
-      <div className="text-6xl text-center mb-4">{fish.emoji}</div>
-      <div className="flex justify-between items-start mb-1 gap-2">
-        <h3 className="font-serif text-lg font-bold leading-tight flex-1">{fish.name}</h3>
-        <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-sm whitespace-nowrap">{fish.category.split(" ")[0]}</span>
+    <div className={`bg-background border border-border flex flex-col transition-all duration-300 hover:shadow-xl hover:border-primary/30 ${!fish.available ? "opacity-50 grayscale" : ""}`}>
+      <div className="p-8 pb-0 text-center flex flex-col items-center">
+        <div className="text-6xl mb-6 mix-blend-luminosity opacity-80">{fish.emoji}</div>
+        <div className="w-full text-left">
+          <div className="flex justify-between items-baseline mb-2">
+            <h3 className="font-serif text-2xl font-medium tracking-tight">{fish.name}</h3>
+            <span className="text-xs uppercase tracking-wider text-muted-foreground">₹{fish.pricePerKg}/kg</span>
+          </div>
+          <p className="text-xs uppercase tracking-wider text-secondary mb-4">{fish.localName}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 min-h-[4.5rem]">
+            {fish.description}
+          </p>
+        </div>
       </div>
-      <p className="text-muted-foreground text-sm italic mb-2">{fish.localName}</p>
       
-      <p className="text-xs text-muted-foreground mb-4 line-clamp-2 min-h-[2rem]">{fish.description}</p>
-      
-      <div className="font-bold text-primary text-xl mb-4">₹{fish.pricePerKg}/kg</div>
-      
-      <div className="mt-auto space-y-4">
-        <div className="flex items-center justify-between bg-background rounded-md border border-border/50 p-1">
-          <button onClick={decrease} disabled={!fish.available || quantity <= 0.5} className="w-8 h-8 flex items-center justify-center text-xl disabled:opacity-50 text-foreground hover:bg-muted rounded">-</button>
-          <span className="font-medium text-sm w-12 text-center">{quantity.toFixed(1)} kg</span>
-          <button onClick={increase} disabled={!fish.available} className="w-8 h-8 flex items-center justify-center text-xl disabled:opacity-50 text-foreground hover:bg-muted rounded">+</button>
+      <div className="mt-auto p-6 space-y-5 border-t border-border mt-6">
+        <div className="flex items-center justify-between border-b border-border pb-4">
+          <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Quantity</span>
+          <div className="flex items-center gap-4">
+            <button onClick={decrease} disabled={!fish.available || quantity <= 0.5} className="text-muted-foreground hover:text-primary transition-colors disabled:opacity-30">-</button>
+            <span className="font-mono text-sm w-12 text-center">{quantity.toFixed(1)} kg</span>
+            <button onClick={increase} disabled={!fish.available} className="text-muted-foreground hover:text-primary transition-colors disabled:opacity-30">+</button>
+          </div>
         </div>
 
-        <select 
-          value={cut} 
-          onChange={(e) => setCut(e.target.value as CutPreference)}
-          disabled={!fish.available}
-          className="w-full bg-background border border-border/50 text-foreground text-sm rounded-md p-2 focus:ring-primary focus:border-primary disabled:opacity-50"
-        >
-          {Object.values(CutPreference).map(c => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
+        <div className="flex items-center justify-between border-b border-border pb-4">
+          <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Prep</span>
+          <select 
+            value={cut} 
+            onChange={(e) => setCut(e.target.value as CutPreference)}
+            disabled={!fish.available}
+            className="bg-transparent text-sm font-medium focus:outline-none text-right cursor-pointer disabled:cursor-not-allowed"
+          >
+            {Object.values(CutPreference).map(c => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </div>
 
         <button 
           disabled={!fish.available}
@@ -113,9 +123,9 @@ function FishCard({ fish, onAdd }: { fish: any, onAdd: (item: any) => void }) {
             quantityKg: quantity,
             cut
           })}
-          className="w-full bg-[#ff6b35] text-white font-semibold py-3 rounded-md hover:bg-[#ff6b35]/90 transition-colors disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
+          className="w-full bg-primary text-primary-foreground text-xs uppercase tracking-widest font-bold py-4 hover:bg-primary/90 transition-colors disabled:bg-muted disabled:text-muted-foreground"
         >
-          {fish.available ? "Add to Cart" : "Not Available Today"}
+          {fish.available ? "Add to Cart" : "Sold Out"}
         </button>
       </div>
     </div>

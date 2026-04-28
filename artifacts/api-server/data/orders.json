@@ -1,0 +1,50 @@
+[
+  {
+    "customer": {
+      "fullName": "tri",
+      "mobile": "9999999999",
+      "flat": "9",
+      "building": "9",
+      "street": "9",
+      "area": "Matunga",
+      "landmark": "0",
+      "pincode": "400005"
+    },
+    "items": [
+      {
+        "fishId": "surmai",
+        "name": "Surmai",
+        "emoji": "🐟",
+        "pricePerKg": 800,
+        "quantityKg": 1,
+        "cut": "Whole Fish",
+        "lineTotal": 800
+      },
+      {
+        "fishId": "pomfret",
+        "name": "Pomfret",
+        "emoji": "🫧",
+        "pricePerKg": 950,
+        "quantityKg": 0.5,
+        "cut": "Curry Cut",
+        "lineTotal": 475
+      },
+      {
+        "fishId": "halwa",
+        "name": "Halwa",
+        "emoji": "🐡",
+        "pricePerKg": 500,
+        "quantityKg": 1,
+        "cut": "Whole Fish",
+        "lineTotal": 500
+      }
+    ],
+    "deliverySlot": "Evening (4 PM - 7 PM)",
+    "subtotal": 1775,
+    "deliveryCharge": 0,
+    "total": 1775,
+    "orderId": "FS-1777392373325",
+    "createdAt": "2026-04-28T16:06:13.325Z",
+    "status": "pending"
+  }
+]

@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "EuZhsaMIoPkDLUV2GkShO"
+uri = "file://artifacts/fishy-spot/public/hero.png"
+type = "image"
+title = "Mumbai dock fish counter"
+
+[[generated]]
+id = "gur7eUwZ_RsUHyhfPcaX9"
+uri = "file://artifacts/fishy-spot/public/about-cleaning.png"
+type = "image"
+title = "Hands cleaning pomfret"
+
+[[generated]]
+id = "9yiOgRbNOWWG05ArmJgLQ"
+uri = "file://artifacts/fishy-spot/public/prawns.png"
+type = "image"
+title = "Plate of fresh prawns"
+
+[[generated]]
+id = "Nqvn_weuVsriZTeb3LFqv"
+uri = "file://artifacts/fishy-spot/public/pomfret.png"
+type = "image"
+title = "Pomfret on ice"

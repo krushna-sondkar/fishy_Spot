@@ -3,50 +3,59 @@ import { Link } from "wouter";
 
 export default function About() {
   useEffect(() => {
-    document.title = "About Us | Fishy Spot";
+    document.title = "Our Story | Fishy Spot";
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-4xl">
-      <div className="text-center mb-16">
-        <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-primary">We're Mumbaikars Who Love Fresh Fish</h1>
-        <div className="w-24 h-1 bg-[#ff6b35] mx-auto rounded-full mb-8"></div>
-        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-          Fishy Spot started with one simple idea — why should getting fresh fish be so hard? Every morning, we wake up before dawn, head to the docks, pick the freshest catch of the day, and bring it straight to your kitchen. No middlemen, no frozen stock, no compromise on freshness. Just pure, honest fish.
+    <div className="container mx-auto px-4 py-24 max-w-4xl">
+      <div className="text-center mb-24">
+        <h1 className="font-serif text-5xl md:text-7xl font-medium mb-8 text-primary tracking-tighter">The Pursuit of Freshness.</h1>
+        <div className="w-16 h-[1px] bg-primary mx-auto mb-10"></div>
+        <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light max-w-3xl mx-auto">
+          We believe that exceptional seafood shouldn't require a restaurant reservation or a 4 AM trip to the docks. It should simply arrive at your door, pristine and ready for the pan.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 mb-16">
-        <div className="bg-card rounded-xl p-8 border border-border/20 shadow-lg text-center hover:-translate-y-1 transition-transform duration-300">
-          <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">🌊</div>
-          <h3 className="font-serif text-xl font-bold mb-2">Always Fresh</h3>
-          <p className="text-sm text-muted-foreground">Sourced daily. Never frozen. If it's not fresh, we don't sell it.</p>
+      <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
+        <div className="order-2 md:order-1 space-y-6 text-muted-foreground leading-relaxed">
+          <p>
+            Fishy Spot was born from a frustration familiar to any coastal resident: why is it so difficult to get genuinely fresh fish from local waters without compromising your entire morning?
+          </p>
+          <p>
+            Every day before dawn, our buyers are at Sassoon Dock and Vashi Fish Market. We bypass the secondary markets, the cold storage facilities, and the middlemen. We buy the catch straight off the boats, focusing strictly on quality, firmness, and clarity.
+          </p>
+          <p>
+            Once secured, our preparation team takes over. Skilled mongers clean, debone, and portion the fish to exact culinary standards. By evening, it's in your kitchen. No freezing, no sitting on ice displays for days. Just honest, incredibly fresh seafood.
+          </p>
         </div>
-        <div className="bg-card rounded-xl p-8 border border-border/20 shadow-lg text-center hover:-translate-y-1 transition-transform duration-300">
-          <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">🔪</div>
-          <h3 className="font-serif text-xl font-bold mb-2">Always Cleaned</h3>
-          <p className="text-sm text-muted-foreground">Expertly cleaned and cut exactly to your preference, ready to cook.</p>
-        </div>
-        <div className="bg-card rounded-xl p-8 border border-border/20 shadow-lg text-center hover:-translate-y-1 transition-transform duration-300">
-          <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">🕐</div>
-          <h3 className="font-serif text-xl font-bold mb-2">Always on Time</h3>
-          <p className="text-sm text-muted-foreground">Reliable evening delivery to fit perfectly with your dinner prep.</p>
+        <div className="order-1 md:order-2">
+          <img src="/hero.png" alt="Mumbai Docks" className="w-full h-[500px] object-cover grayscale-[20%] sepia-[10%] border border-border" />
         </div>
       </div>
 
-      <div className="bg-surface rounded-2xl p-8 md:p-12 text-center border border-border/20 relative overflow-hidden">
-        <div className="absolute -top-10 -right-10 text-9xl opacity-5 pointer-events-none">🐟</div>
-        <div className="absolute -bottom-10 -left-10 text-9xl opacity-5 pointer-events-none">🦐</div>
-        
-        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6 relative z-10">Our Roots</h2>
-        <p className="text-lg text-muted-foreground mb-4 relative z-10">We source daily from Sassoon Dock, Mumbai and Vashi Fish Market, Navi Mumbai.</p>
-        <p className="text-primary font-medium text-lg relative z-10">Serving: Mumbai & Navi Mumbai</p>
-        
-        <div className="mt-8 relative z-10">
-          <Link href="/shop" className="inline-flex h-12 items-center justify-center rounded-lg bg-[#ff6b35] px-8 text-base font-semibold text-white transition-colors hover:bg-[#ff6b35]/90 shadow-lg shadow-[#ff6b35]/20">
-            Taste the Difference
-          </Link>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 border-t border-b border-border py-16">
+        <div className="text-center px-4">
+          <span className="block text-xs uppercase tracking-widest text-primary font-bold mb-4">01. Source</span>
+          <h3 className="font-serif text-2xl font-medium mb-4">Uncompromising</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">We reject more than we buy. Only the clearest eyes and firmest textures make it into our daily catalogue.</p>
         </div>
+        <div className="text-center px-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0">
+          <span className="block text-xs uppercase tracking-widest text-primary font-bold mb-4">02. Craft</span>
+          <h3 className="font-serif text-2xl font-medium mb-4">Expertly Prepped</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">Our fishmongers treat the ingredient with respect, providing clean, professional cuts for immediate cooking.</p>
+        </div>
+        <div className="text-center px-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0">
+          <span className="block text-xs uppercase tracking-widest text-primary font-bold mb-4">03. Time</span>
+          <h3 className="font-serif text-2xl font-medium mb-4">Hours, not Days</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">From the ocean to your kitchen in a matter of hours. Time is the ultimate metric of seafood quality.</p>
+        </div>
+      </div>
+
+      <div className="text-center">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground font-bold mb-6">Experience the difference</p>
+        <Link href="/shop" className="inline-flex h-14 items-center justify-center bg-primary px-10 text-xs uppercase tracking-widest font-bold text-primary-foreground transition-colors hover:bg-primary/90">
+          View Today's Catalogue
+        </Link>
       </div>
     </div>
   );

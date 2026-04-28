@@ -18,24 +18,23 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-md">
+      <div className="container mx-auto px-4 h-24 flex items-center justify-between">
         <Link href="/" onClick={closeMenu} className="flex flex-col">
           <div className="flex items-center gap-2">
-            <span className="text-3xl">🐟</span>
-            <span className="font-serif text-2xl font-bold text-primary">Fishy Spot</span>
+            <span className="font-serif text-3xl font-medium tracking-tighter text-primary">Fishy Spot</span>
           </div>
-          <span className="text-[10px] text-muted-foreground uppercase tracking-widest pl-10 -mt-1">From the Sea to Your Plate</span>
+          <span className="text-[9px] text-muted-foreground uppercase tracking-[0.2em] mt-1">From the Sea to Your Plate</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               href={link.path}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                location === link.path ? "text-primary" : "text-muted-foreground"
+              className={`text-sm tracking-wide uppercase transition-colors hover:text-primary ${
+                location === link.path ? "text-primary font-semibold" : "text-muted-foreground font-medium"
               }`}
             >
               {link.name}
@@ -44,18 +43,19 @@ export function Navbar() {
         </nav>
 
         {/* Right Section */}
-        <div className="flex items-center gap-4">
-          <Link href="/cart" className="relative p-2 text-foreground hover:text-primary transition-colors">
-            <ShoppingCart className="h-6 w-6" />
+        <div className="flex items-center gap-6">
+          <Link href="/cart" className="relative p-2 text-foreground hover:text-primary transition-colors flex items-center gap-2">
+            <ShoppingCart className="h-5 w-5" strokeWidth={1.5} />
+            <span className="text-sm font-medium uppercase tracking-wide hidden sm:block">Cart</span>
             {totalItems > 0 && (
-              <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white">
+              <span className="absolute top-0 left-4 flex h-4 w-4 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white">
                 {totalItems}
               </span>
             )}
           </Link>
           <Link
             href="/shop"
-            className="hidden sm:inline-flex h-10 items-center justify-center rounded-md bg-[#ff6b35] px-6 text-sm font-medium text-white transition-colors hover:bg-[#ff6b35]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            className="hidden sm:inline-flex h-11 items-center justify-center bg-primary px-8 text-xs uppercase tracking-widest font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           >
             Order Now
           </Link>
@@ -65,21 +65,21 @@ export function Navbar() {
             className="md:hidden p-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-border/20 bg-background absolute top-20 left-0 w-full p-4 flex flex-col gap-4 shadow-xl">
+        <div className="md:hidden border-t border-border bg-background absolute top-24 left-0 w-full p-6 flex flex-col gap-6 shadow-xl">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               href={link.path}
               onClick={closeMenu}
-              className={`text-lg font-medium p-2 rounded-md ${
-                location === link.path ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted"
+              className={`text-2xl font-serif p-2 ${
+                location === link.path ? "text-primary" : "text-muted-foreground hover:text-primary"
               }`}
             >
               {link.name}
@@ -88,7 +88,7 @@ export function Navbar() {
           <Link
             href="/shop"
             onClick={closeMenu}
-            className="inline-flex h-12 items-center justify-center rounded-md bg-[#ff6b35] px-6 text-base font-medium text-white transition-colors hover:bg-[#ff6b35]/90 w-full mt-2"
+            className="inline-flex h-14 items-center justify-center bg-primary px-6 text-sm uppercase tracking-widest font-bold text-primary-foreground transition-colors hover:bg-primary/90 w-full mt-4"
           >
             Order Now
           </Link>
