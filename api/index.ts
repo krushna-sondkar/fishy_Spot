@@ -31,6 +31,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Vercel Serverless Functions might pass req.url as '/api/fish' or just '/fish'.
+// We normalize it here so the router can always match it.
+app.use((req, res, next) => {
+  if (req.url && !req.url.startsWith('/api')) {
+    req.url = '/api' + req.url;
+  }
+  next();
+});
+
 // Routes
 app.use('/api', router);
 app.use(router);
