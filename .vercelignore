@@ -8,16 +8,5 @@ node_modules
 *.log
 .DS_Store
 replit.md
-attached_assets
-scripts/
-artifacts/mockup-sandbox/
-artifacts/api-server/src/
-artifacts/api-server/build.mjs
-artifacts/fishy-spot/src/
-lib/*/src/
-lib/*/tsconfig.json
 .env.local
 .env.*.local
-tsconfig.base.json
-tsconfig.json
-pnpm-workspace.yaml
