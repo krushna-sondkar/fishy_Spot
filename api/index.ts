@@ -33,6 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api', router);
+app.use(router);
 
 // Health check
 app.get('/healthz', (_req, res) => {
