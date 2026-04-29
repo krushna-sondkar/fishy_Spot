@@ -12,6 +12,12 @@
   "devDependencies": {
     "typescript": "~5.9.2",
     "prettier": "^3.8.1",
-    "@vercel/node": "^3.0.0"
+    "@vercel/node": "^3.0.0",
+    "express": "^5",
+    "cors": "^2",
+    "pino-http": "^10",
+    "@types/express": "^5.0.6",
+    "@types/cors": "^2.8.19",
+    "@types/node": "^22.0.0"
   }
 }
