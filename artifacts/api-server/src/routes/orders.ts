@@ -1,4 +1,5 @@
-import { Router, type IRouter } from "express";
+import { Router, Request, Response } from "express";
+import { v4 as uuidv4 } from "uuid";
 import {
   CreateOrderBody,
   ListOrdersResponse,
@@ -6,9 +7,9 @@ import {
 } from "@workspace/api-zod";
 import { appendOrder, readOrders, type StoredOrder } from "../lib/orderStore";
 
-const router: IRouter = Router();
+const router = Router();
 
-router.get("/orders", async (_req, res) => {
+router.get("/orders", async (_req: Request, res: Response) => {
   const orders = await readOrders();
   const sorted = [...orders].sort((a, b) =>
     b.createdAt.localeCompare(a.createdAt),
@@ -17,7 +18,7 @@ router.get("/orders", async (_req, res) => {
   res.json(data);
 });
 
-router.post("/orders", async (req, res) => {
+router.post("/orders", async (req: any, res: any) => {
   const parsed = CreateOrderBody.safeParse(req.body);
   if (!parsed.success) {
     res
@@ -41,7 +42,7 @@ router.post("/orders", async (req, res) => {
   res.status(201).json({ success: true, orderId, order });
 });
 
-router.get("/orders/stats", async (_req, res) => {
+router.get("/orders/stats", async (_req: any, res: any) => {
   const orders = await readOrders();
 
   const totalOrders = orders.length;

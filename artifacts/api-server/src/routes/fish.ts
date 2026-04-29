@@ -1,7 +1,7 @@
-import { Router, type IRouter } from "express";
+import { Router } from "express";
 import { ListFishResponse } from "@workspace/api-zod";
 
-const router: IRouter = Router();
+const router = Router();
 
 const FISH_CATALOGUE = [
   {
@@ -106,7 +106,7 @@ const FISH_CATALOGUE = [
   },
 ];
 
-router.get("/fish", (_req, res) => {
+router.get("/fish", (_req: any, res: any) => {
   const data = ListFishResponse.parse(FISH_CATALOGUE);
   res.json(data);
 });

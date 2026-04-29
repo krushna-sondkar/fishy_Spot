@@ -36,7 +36,7 @@ app.use('/api', router);
 app.use(router);
 
 // Health check
-app.get('/healthz', (_req, res) => {
+app.get('/healthz', (_req: any, res: any) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 

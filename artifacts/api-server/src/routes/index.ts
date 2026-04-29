@@ -1,9 +1,9 @@
-import { Router, type IRouter } from "express";
+import { Router } from "express";
 import healthRouter from "./health";
 import fishRouter from "./fish";
 import ordersRouter from "./orders";
 
-const router: IRouter = Router();
+const router = Router();
 
 router.use(healthRouter);
 router.use(fishRouter);
