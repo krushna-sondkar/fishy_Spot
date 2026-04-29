@@ -1,9 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "buildCommand": "pnpm install --frozen-lockfile && pnpm run build",
+  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm run build",
   "outputDirectory": "artifacts/fishy-spot/dist/public",
-  "installCommand": "pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "rewrites": [
     {
       "source": "/api(.*)",
