@@ -24,10 +24,10 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["artifacts/fishy-spot/src/*"],
-      "@assets/*": ["attached_assets/*"]
-    }
+      "@/*": ["../artifacts/fishy-spot/src/*"],
+      "@assets/*": ["../attached_assets/*"]
+    },
+    "types": ["node", "@vercel/node"]
   },
-  "include": ["api", "artifacts/api-server/src"],
-  "types": ["node", "@vercel/node"]
+  "include": [".", "../artifacts/api-server/src"]
 }
