@@ -32,7 +32,7 @@ export default function Checkout() {
     area: "",
     landmark: "",
     pincode: "",
-    deliverySlot: DeliverySlot["Evening_(4_PM_-_7_PM)"],
+    deliverySlot: DeliverySlot["Evening_(4_PM_-_7_PM)"] as DeliverySlot,
     specialInstructions: ""
   });
   
